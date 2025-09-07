@@ -1,0 +1,76 @@
+{
+    "rusty-chess" : {
+        "Thumbnail" : {
+            "Carousel" : {
+                "Enabled" : false
+            },
+            "Url" : "https://i.imgur.com/hlMiViq.png"
+        }
+    },
+    "chess_pain" : {
+        "Thumbnail" : {
+            "Carousel" : {
+                "Enabled" : false
+            },
+            "Url" : "https://i.imgur.com/s0oiwrB.png"
+        }
+    },
+    "shark-tank" : {
+        "Thumbnail" : {
+            "Carousel" : {
+                "Enabled" : false
+            },
+            "Url" :  "https://raw.githubusercontent.com/superkidsyuvan/shark-tank/refs/heads/main/website/data/img/users/fullBody/group.jpg"
+        }
+    },
+    "EM_STEAM" : {
+        "Thumbnail" : {
+            "Carousel" : {
+                "Enabled" : false,
+                "ImageURLs" : [
+                    "https://i.imgur.com/DbqIWwj.png",
+                    "https://raw.githubusercontent.com/superkidsyuvan/EM_STEAM/refs/heads/master/src_files/images/bin/CHAPTER1/evil_cece1/FNF1_CECE/near_end/cece_mother-v2.png"
+                ]
+            },
+            "Url" : "https://i.imgur.com/DbqIWwj.png"
+        }
+    },
+    "COOLEST-APP" : {
+        "Thumbnail" : {
+            "Carousel" : {
+                "Enabled" : false
+            },
+            "Url" : "https://i.imgur.com/jDR3jh2.png"
+        }
+    },
+    "tsone" : {
+        "Thumbnail" : {
+            "Carousel" : {
+                "Enabled" : false,
+                "ImageURLs" : [
+                    "https://raw.githubusercontent.com/superkidsyuvan/tsone/refs/heads/main/Games/3cd5de1d93e4e0f67bed0db2aab89d35.jpg",
+                    "https://raw.githubusercontent.com/superkidsyuvan/tsone/refs/heads/main/Web%20Games/058cf04a4d49a81e96426a5b7d5b0114.jpg",
+                    "https://raw.githubusercontent.com/superkidsyuvan/tsone/refs/heads/main/Daily%20Check-In/54b9585671be3e699a0ab6fa4ec202fd.jpg"
+                ]
+            },
+            "Url" : "https://raw.githubusercontent.com/superkidsyuvan/tsone/refs/heads/main/Games/3cd5de1d93e4e0f67bed0db2aab89d35.jpg"
+        }
+    },
+    "superkidsyuvan.github.io" : {
+        "Thumbnail" : {
+            "Carousel" : {
+                "Enabled" : false
+            },
+            "Url" : "https://raw.githubusercontent.com/superkidsyuvan/superkidsyuvan.github.io/refs/heads/main/data/img/png/thumbnail.png"
+        }
+    },
+    "_" : {
+        "Thumbnail" : {
+            "Carousel" : {
+                "Enabled" : false
+            },
+            "Url" : "https://i.imgur.com/mqTT6no.png",
+            "AlternateUrl" : "https://i.imgur.com/9gt3L6r.png"
+        }
+    }
+}

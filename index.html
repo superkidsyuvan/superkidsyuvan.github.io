@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Welcome to the purgatory that is my mind 🤭">
+        <meta name="keywords" content="Werid, Unorthodox, Portfolio">
+        <meta name="author" content="Yublanathan">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="./favicon.ico">
+        <title>Projects - Portfolio</title>
+        <style>
+            @keyframes spin {
+                from {transform:rotate(0deg);}
+                to {transform:rotate(360deg);}
+            }
+            
+            :root {
+                --caption-color: #a9a9a9;
+                --background-color: #e8e9eb;
+                --primary-color: #837a75;
+            }
+
+            html, body {
+                max-width: 100%;
+                overflow-x: hidden;
+                font-family: Arial, sans-serif;
+                background-color: var(--background-color);
+                margin: 0;
+                padding: 0;
+            }
+
+            body > * {
+                margin: 8px;
+            }
+
+            .gitSpacer, .roSpacer {
+                width: 100%;
+                height: 30px;
+                background-color: transparent;
+                border: none;
+                z-index: 0;
+                position: relative;
+                margin-bottom: 10px;
+            }
+            
+            .roSpacer {
+                margin-top: 20px;
+            }
+
+            .length-line {
+                width: 90%;
+                height: 1px;
+                background-color: var(--caption-color);
+                position: absolute;
+                left: 5%;
+                right: 5%;
+                z-index: 1;
+                top: 13px;
+                bottom: 15px;
+                border: 1px solid var(--caption-color);
+                border-radius: 5px;
+            }  
+
+            .behind {
+                padding: 0;
+                border: none;
+                z-index: 2;
+                background-color: var(--background-color); 
+                position: relative;
+                top: 0px;
+            }
+
+            .behind > .b-svg {
+                background-repeat: no-repeat;
+                background-size: contain;
+                transform: rotate(0deg);
+                transition: all 250ms ease-in-out;
+            }
+
+            .behind > img.b-svg:hover, .behind > img.b-svg.spinning {
+                background-image: url('./data/img/svg/rotate-right.svg') !important;
+            }
+
+            .behind > img.b-svg.spinning {
+                animation: spin 1s ease 0s infinite forwards;
+            }
+
+            .b-container, .b-svg {
+                width: 25px;
+                height: 25px;
+            }
+
+            .b-container {
+                left: 10px;
+                margin-right: 5px;
+            }
+
+            .b-svg {
+                filter: invert(75%) sepia(1%) saturate(329%) hue-rotate(316deg) brightness(91%) contrast(88%);
+            }
+
+            .b-text {
+                display: none;
+                color: var(--caption-color);
+                left: 45px;
+                top: -20px;
+                height: fit-content;
+                width: fit-content;
+            }
+
+            .gitRepo {
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                border: 1px solid var(--caption-color);
+                width: 250px;
+                height: 202px;
+                background-color: #a9a9a9;
+                box-shadow: 10px 10px 5px #393636;
+                z-index: 2;
+                overflow: hidden;
+                margin: 10px;
+                display: flex;
+                flex-direction: row;
+                transition: width ease-out 250ms, height ease-in 250ms;
+            }
+
+            .gitRepo.middle, .gitRepo.end {
+               border-top-left-radius: 10px;
+               border-top-right-radius: 10px; 
+            }
+
+            .gitRepo.end {
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+            }
+
+            .gitRepo.selected {
+                width: 450px;
+            }
+
+            .gitRepo > .gr-main-cont {
+                flex-grow: 0;
+                flex-shrink: 0;
+                flex-basis: 250px;
+            }
+
+            .gitRepo > .gr-detl-cont {
+                justify-content: end;
+                flex-basis: 200px;
+                background-color: #393636;
+            }
+
+            .caption {
+                color: #3b413c;
+                font-size: small;
+            }
+
+            .caption2 {
+                color: var(--caption-color);
+            }
+
+            .gr-detl-cont .caption2 {
+                margin: 5px;
+            }
+
+            .fl-l .caption, .fl-l .title {
+                display: block;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .fl-l .caption {
+                width: 90%;
+            }
+
+            .fl-l .title {
+                width: 99%;
+                max-width: 237px;
+            }
+
+            .gr-img-container {
+                z-index: 1;
+                width: 100%;
+                height: fit-content;
+                position: relative;
+            }
+
+            .gr-img-main {
+                width: 250px;
+                height: 125px;
+                object-fit: fill;
+            }
+
+            .gr-img-ovrlay {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                width: 100%;
+                height: 125px;
+                padding-bottom: 0px;
+                z-index: 2;
+                box-shadow: inset 0 -20px 20px -20px #000000;
+            }
+
+            .gr-img-ovrlay-cont {
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                width: fit-content;
+                height: fit-content;
+            }
+
+            .gr-img-ovrlay-cont button {
+                float: left;
+                width: 5px;
+                height: 5px;
+                background-color: rgba(255, 255, 255, 0.5);
+                border: none;
+                border-radius: 10px;
+                margin-left: 5px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                margin-right: 0px;
+                transition: background-color ease-in-out 250ms, padding ease 250ms;
+            }
+
+            .gr-img-ovrlay-cont button.selected,  .gr-img-ovrlay-cont button:hover{
+                background-color: #ffffff;
+            }
+
+            .gr-img-ovrlay-cont button:not(.selected) {
+                padding: 0;
+            }
+
+            .gr-txt {
+                padding: 5px;
+            }
+
+            .gr-img-icon {
+                position: relative;
+                width: 20px;
+                height: 20px;
+                z-index: 3;
+                transition: filter ease-out 350ms, right ease-out 400ms, bottom ease-out 400ms;
+                right: 0px;
+            }
+
+            .gr-svg {
+                filter: invert(25%) sepia(5%) saturate(735%) hue-rotate(78deg) brightness(91%) contrast(92%);
+            }
+
+            .gr-img-icon.b-svg {
+                right: -200px;
+            }
+
+            .fl-r {
+                float: right;
+            }
+
+            .btn {
+                margin-top: 10px;
+            }
+
+            .btn button {
+                border-right: 1px solid var(--background-color);
+                border-bottom: none;
+                border-top: none;
+                border-left: none;
+                background-color: transparent;
+                color: var(--background-color);
+            }
+
+            .btn button:nth-of-type(1) {
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+
+            .btn button:nth-last-of-type(1) {
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                border-right: none;
+            }
+
+            .btn button:hover {
+                background-color: rgba(0, 0, 0, .25);
+            }
+
+            .wh {
+                width: 50%;
+                height: 40px;
+                display: none;
+            }
+            
+            github, roblox, misc {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                align-content: flex-start;
+                justify-content: center;
+            }
+
+            misc {
+                padding-bottom: 20px;
+            }
+
+            .refreshbtn {
+                background-color: var(--primary-color);
+                color: #ffffff;
+                border: none;
+                border-radius: 5px;
+                padding: 5px;
+            }
+
+            .hide {
+                display: none;
+            }
+
+            @media (max-width: 800px) {
+                .gitRepo {
+                    flex-direction: column;
+                }
+
+                .gitRepo > .gr-main-cont {
+                    flex-basis: 202px;
+                }
+
+                .gitRepo.selected {
+                    width: 250px;
+                    height: 300px;
+                }
+
+                .gr-img-icon.b-svg {
+                    right: 0px;
+                    bottom: -98px;
+                }
+
+                .behind {
+                    padding-right: 5px;
+                }
+            }
+
+            @media (max-width: 500px) {
+                body > header > div {
+                    width: 80%;
+                    left: 10%;
+                    right: 10%;
+                }
+            }
+
+            header {
+                width: 100%;
+                overflow: hidden;
+                height: 40px;
+                margin-top: 0;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 16px;
+                background-color: var(--primary-color);
+                color: var(--caption-color);
+            }
+
+            header > div {
+                position: relative;
+                display: flex;
+                width: 50%;
+                height: 20px;
+                top: 10px;
+                left: 25%;
+                right: 25%;
+            }
+
+            header input[type="search"] {
+                position: relative;
+                width: calc(100% - 15px);
+                left: 0;
+                margin-right: 0;
+            }
+
+            header input[type="search"]:placeholder-shown {
+                text-overflow: ellipsis;
+            }
+
+            header > div > button {
+                top: 0;
+                right: 0;
+                position: relative;
+                min-width: 15px;
+                height: 100%;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+                background-color: var(--caption-color);
+                border: 1px solid #767676;
+            }
+
+            header > div > button:active {
+                background-color: #6d6d6d;
+                border: #6d6d6d;
+            }
+
+            header > div > button > img {
+                width: 10px;
+                height: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div>
+                <input type="search" placeholder="Search for one of [my Projects]..." id="searchBar">
+                <button>
+                    <img src="./data/img/svg/magnifying-glass.svg" class="gr-svg" onclick="window.search(document.getElementById('searchBar').innerText)">
+                </button>
+            </div>
+        </header>
+        <!--<div class="overarching">
+            <div class="alert error">
+                <img src="" alt="errorPNG">
+                <span></span>
+            </div>
+        </div>-->
+        <div class="gitSpacer">
+            <div class="length-line"></div>
+            <button class="behind b-container" onclick="reloadContents(this)" data-content="github">
+                <img style="background-image: url('./data/img/svg/github.svg');" src="data:/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC" class="b-svg">
+            </button>
+            <span class="behind b-text">GITHUB PROJECTS</span>
+        </div>
+        <github></github>
+        <div class="roSpacer">
+            <div class="length-line"></div>
+            <button class="behind b-container" onclick="reloadContents(this)" data-content="roblox">
+                <img style="background-image: url('./data/img/svg/roblox.svg');" src="data:/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC" class="b-svg">
+            </button>
+            <span class="behind b-text">ROBLOX EXPERIENCES</span>
+        </div>
+        <roblox></roblox>
+        <div class="roSpacer">
+            <div class="length-line"></div>
+            <button class="behind b-container" onclick="reloadContents(this)" data-content="misc">
+                <img style="background-image: url('./data/img/svg/globe.svg');" src="data:/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC" class="b-svg">
+            </button>
+            <span class="behind b-text">WEBGAMES & MISC.</span>
+        </div>
+        <misc>
+        </misc>
+        <!--<center><button class="reset">Reload</button></center>-->
+        <script>
+            const roProfileUrl = 'https://www.roblox.com/users/profile/playergames-json?userId=1641292729'
+
+            var secretCODE = "wwssadadba";
+            var pressed = [];
+            var lastSelect = null;
+
+            var projects = [];
+
+            document.getElementById("searchBar").addEventListener("input", e => {
+                const value = e.target.value.toLowerCase()
+                projects.forEach(project => {
+                    const isVisible = project.name.toLowerCase().includes(value) || project.desc.toLowerCase().includes(value)
+                    project.element.classList.toggle("hide", !isVisible)
+                });
+            });
+
+            function isEven(num) {
+                return num % 2 == 0
+            }
+
+            async function reloadContents(btn) {
+                btn.getElementsByTagName("img")[0].classList.add("spinning");
+                var tagName = btn.getAttribute("data-content").toLowerCase()
+                document.getElementsByTagName(tagName)[0].replaceChildren()
+                projects = projects.filter(project => project.type !== tagName);
+                if (tagName == "misc") {
+                    await getTsone(true);
+                } else if (tagName == "github") {
+                    await getGitRepos();
+                } else {
+                    await getExperiences();
+                }
+                btn.getElementsByTagName("img")[0].classList.remove("spinning");
+            }
+
+            async function retrieveLangArrFromURL(langURL) {
+                let response = await fetch(langURL, {
+                    method: "GET"
+                });
+                    
+                if (!response.ok) {throw new Error("Failed with code:" + String(response.status))};
+                var data = await response.json();
+
+                return retrieveLangArrFromData(data);
+            }
+
+            function retrieveLangArrFromData(langDATA) {
+                var arr = [];
+                
+                for (const [key, value] of Object.entries(langDATA)) {
+                    arr.push(key)
+                }
+
+                return arr
+            }
+
+            async function retrieveGitImg(name) {
+                var str = "";
+
+                let response = await fetch("https://raw.githubusercontent.com/superkidsyuvan/superkidsyuvan.github.io/refs/heads/main/data/data.json", {
+                    method: "GET"
+                });
+                
+                //if failed
+                if (!response.ok) {throw new Error("Failed with code:" + String(response.status))};
+                //get the response JSON
+                let data = await response.json();
+
+                //iterating over each game's data
+                if (name in data) {
+                    str = data[name].Thumbnail.Url
+                } else {
+                    str = data._.Thumbnail.Url
+                }
+
+                return [str, str == data._.Thumbnail.Url ? false : data[name].Thumbnail.Carousel.Enabled, str == data._.Thumbnail.Url ? false : data[name].Thumbnail.Carousel.ImageURLs]
+            }
+
+            function createLang(lang) {
+                var str = ""
+                for(let i = 0; i < lang.length; i++) {
+                    if (i!=0) {
+                        str += " • "
+                    }
+                    str += lang[i]
+                }
+                return str == "" ? "Markdown.. (probably 😰)" : str
+            }
+
+            function changeImageCarousel(button, mainImg) {
+                mainImg.src = button.getAttribute("data-image")
+                for(let i = 0; i < button.parentElement.children.length; i++) {
+                    button.parentElement.children[i].classList.remove("selected")
+                }
+                button.classList.add("selected")
+            }
+
+            function thisDetails(button){
+                let closer = false
+                if (lastSelect != null && (lastSelect.parentElement.parentElement.parentElement.parentElement.classList.contains("selected"))) {
+                    lastSelect.parentElement.parentElement.parentElement.parentElement.classList.remove("selected");
+                    lastSelect.parentElement.getElementsByTagName("div")[0].getElementsByTagName("img")[0].classList.add("gr-svg")
+                    lastSelect.parentElement.getElementsByTagName("div")[0].getElementsByTagName("img")[0].classList.remove("b-svg")
+                    if (window.innerWidth >= 800) {
+                        lastSelect.innerHTML = "Details >"
+                    } else {
+                        lastSelect.innerHTML = "Details ⮟"
+                    }
+                    if (lastSelect == button) {
+                        closer = true
+                    }
+                } 
+                if (button.parentElement.parentElement.parentElement.parentElement.classList.contains("selected")) {
+                    button.parentElement.parentElement.parentElement.parentElement.classList.remove("selected");
+                    button.parentElement.getElementsByTagName("div")[0].getElementsByTagName("img")[0].classList.add("gr-svg")
+                    button.parentElement.getElementsByTagName("div")[0].getElementsByTagName("img")[0].classList.remove("b-svg")
+                    if (window.innerWidth >= 800) {
+                        button.innerHTML = "Details >"
+                    } else {
+                        button.innerHTML = "Details ⮟"
+                    }
+                } else if (closer == false){
+                    button.parentElement.parentElement.parentElement.parentElement.classList.add("selected");
+                    button.parentElement.getElementsByTagName("div")[0].getElementsByTagName("img")[0].classList.remove("gr-svg")
+                    button.parentElement.getElementsByTagName("div")[0].getElementsByTagName("img")[0].classList.add("b-svg")
+                    if (window.innerWidth >= 800) {
+                        button.innerHTML = "Details <"
+                    } else {
+                        button.innerHTML = "Details ⮝"
+                    }
+                    lastSelect = button
+                }
+            }
+
+
+            /* The next func makes the following under optimum conditions (img overlay is opt depending on carousel availability):
+
+            <div class="gitRepo">
+                <div class="gr-main-cont">
+                    <div class="gr-img-container">
+                        <img class="gr-img-main" src="https://i.imgur.com/hlMiViq.png" alt="github repo img">
+                        <div class="gr-img-ovrlay">
+                            <div class="gr-img-ovrlay-cont">
+                                <button data-image="https://i.imgur.com/hlMiViq.png" class="selected" onclick="changeImageCarousel(this, this.parentElement.parentElement.parentElement.children[0])"></button>
+                                <button data-image="https://i.imgur.com/s0oiwrB.png" onclick="changeImageCarousel(this, this.parentElement.parentElement.parentElement.children[0])"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gr-txt">
+                        <div class="fl-l">
+                            <span class="title">rusty-chess</span>
+                            <div class="fl-r wh">
+                                <span class="description caption">Lorem ipsum dolor sit amet consecutor</span>
+                            </div></br>
+                            <span class="caption">Rust • HTML</span>
+                        </div>
+                        
+                        <div class="btn">
+                            <button>Visit</button>
+                            <button>Source</button>
+                            <button onclick="thisDetails(this)">Details ⮟</button>
+                            <div class="fl-r">
+                                <img src="./data/img/svg/github.svg" class="gr-img-icon gr-svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gr-detl-cont">
+                    <p class="caption2">because they said it would be blazingly fast.. (its not)</p>
+                </div>
+            </div>
+            
+            */
+
+            function createProj(type /*Github, Roblox, or Misc*/, num /*number, ex. 8 (out of x)*/, maxNum, imgURL, carouselEnabled, carouselArray, name, description, lang /*Arr<String>*/, vistEnabled, visitURL, sourceEnabled, sourceURL, platform) {
+                var container = document.createElement("div")
+                container.classList.add("gitRepo")
+                if (num >= (window.innerWidth >= 557 ? 4 : 1) && (maxNum - (window.innerWidth >= 557 ? 4 : 1)) <= num) {
+                    container.classList.add("end")
+                } else if(num >= (window.innerWidth >= 557 ? 4 : 1) && (maxNum - (window.innerWidth >= 557 ? 4 : 1)) >= num) {
+                    container.classList.add("middle")
+                }
+                console.log(maxNum)
+                var mainCont = document.createElement("div")
+                mainCont.classList.add("gr-main-cont")
+                var mainImg = document.createElement("img")
+                mainImg.classList.add("gr-img-main")
+                mainImg.src=imgURL
+                mainImg.alt=`${name}'s Thumbnail`
+                mainImg.onerror = function() {
+                    this.src = "./data/img/png/onError.png";
+                }
+                if (carouselEnabled) {
+                    var contImg = document.createElement("div")
+                    contImg.classList.add("gr-img-container")
+                    var overImg = document.createElement("div")
+                    overImg.classList.add("gr-img-ovrlay")
+                    var covrImg = document.createElement("div")
+                    covrImg.classList.add("gr-img-ovrlay-cont")
+                    for (let i = 0; i < carouselArray.length; i++) {
+                        var btn = document.createElement("button")
+                        btn.dataset.image = carouselArray[i]
+                        btn.onclick = function() { changeImageCarousel(this, mainImg) }
+                        if (btn.getAttribute("data-image") == mainImg.src) {
+                            btn.classList.add("selected")
+                        }
+                        covrImg.appendChild(btn)
+                    }
+                }
+                var txtContainer = document.createElement("div")
+                txtContainer.classList.add("gr-txt")
+                var flL = document.createElement("div")
+                flL.classList.add("fl-l")
+                var title = document.createElement("span")
+                title.classList.add("title")
+                title.innerHTML = name
+                var br1 = document.createElement("br")
+                var caption = document.createElement("span")
+                caption.classList.add("caption")
+                caption.innerHTML = createLang(lang)
+                var btnContainer = document.createElement("div")
+                btnContainer.classList.add("btn")                
+                if (vistEnabled) {
+                    var btn1 = document.createElement("button")
+                    btn1.innerHTML = "Visit"
+                    btn1.onclick = function() { window.open(visitURL,'_blank') }
+                }
+                if (sourceEnabled) {
+                    var btn2 = document.createElement("button")
+                    btn2.innerHTML = "Source"
+                    btn2.onclick = function() { window.open(sourceURL,'_blank') }
+                }
+                var btn3 = document.createElement("button")
+                btn3.classList.add("end")
+                if (window.innerWidth >= 800) {
+                    btn3.innerHTML = "Details >"
+                } else {
+                    btn3.innerHTML = "Details ⮟"
+                }
+                btn3.onclick = function() { thisDetails(this) }
+                var flR = document.createElement("div")
+                flR.classList.add("fl-r")
+                var iconImg = document.createElement("img")
+                iconImg.alt = `${name}'s Platform's Logo`
+                iconImg.classList.add("gr-img-icon")
+                iconImg.classList.add("gr-svg")
+                iconImg.src = `./data/img/svg/${platform.toLowerCase()}.svg`
+                iconImg.onerror = function() {
+                    this.src = "./data/img/svg/globe.svg";
+                }
+                var detlCont = document.createElement("div");
+                detlCont.classList.add("gr-detl-cont");
+                var cap2 = document.createElement("p");
+                cap2.classList.add("caption2");
+                cap2.innerHTML = description
+                document.getElementsByTagName(type.toLowerCase())[0].appendChild(container)
+                container.appendChild(mainCont)
+                if (!carouselEnabled) {
+                    mainCont.appendChild(mainImg)
+                } else {
+                    mainCont.appendChild(contImg)
+                    contImg.appendChild(mainImg)
+                    contImg.appendChild(overImg)
+                    overImg.appendChild(covrImg)
+                }
+                mainCont.appendChild(txtContainer)
+                txtContainer.appendChild(flL)
+                flL.appendChild(title)
+                //flL.appendChild(br1)
+                flL.appendChild(caption)
+                txtContainer.appendChild(btnContainer)
+                if(vistEnabled){
+                    btnContainer.appendChild(btn1)
+                }
+                if(sourceEnabled){
+                    btnContainer.appendChild(btn2)
+                }
+                btnContainer.appendChild(btn3)
+                btnContainer.appendChild(flR)
+                flR.appendChild(iconImg)
+                container.appendChild(detlCont)
+                detlCont.appendChild(cap2)
+                projects.push(
+                    {
+                        element : container,
+                        type : type.toLowerCase(),
+                        name : name,
+                        desc : description
+                    }
+                )
+            }
+
+            async function getGitRepos() {
+                let response = await fetch("https://api.github.com/users/superkidsyuvan/repos", {
+                    method: "GET"
+                });
+                
+                if (!response.ok) {throw new Error("Failed with code:" + String(response.status))};
+                let data = await response.json();
+
+                for (let key in data) {
+                    var langData = await retrieveLangArrFromURL(data[key].languages_url)
+                    var imgArrURL = await retrieveGitImg(data[key].name)
+                    createProj("Github", key, data.length, imgArrURL[0], imgArrURL[1], imgArrURL[2], data[key].name, data[key].description, langData, data[key].has_pages, `https://superkidsyuvan.github.io/${data[key].name == 'superkidsyuvan.github.io' ? '' : data[key].name}`, true, data[key].html_url, "github", "github")
+                };
+            };
+
+            async function getRobloxianThumbnail(UniverseID) {
+                let response = await fetch(`https://thumbnails.roproxy.com/v1/games/multiget/thumbnails?universeIds=${UniverseID}&size=768x432&format=Png&isCircular=false`, {
+                    method: "GET"
+                });
+                
+                if (!response.ok) {throw new Error("Failed with code:" + String(response.status))};
+                let data = await response.text()
+                data = JSON.parse(data);
+                data = data.data
+
+                return data[0].thumbnails[0].imageUrl
+            }
+
+
+            async function getExperiences() {
+                let response = await fetch("https://www.roproxy.com/users/profile/playergames-json?userId=1641292729", {
+                    method: "GET"
+                });
+                
+                if (!response.ok) {throw new Error("Failed with code:" + String(response.status))};
+
+                let data = await response.text()
+                data = JSON.parse(data)
+                data = data.Games
+
+                console.log(data)
+
+                let response2 = await fetch("https://games.roproxy.com/v2/groups/10913019/games?accessFilter=2&sortOrder=Asc", {
+                    method: "GET"
+                });
+
+                if (!response2.ok) {throw new Error("Failed with code:" + String(response.status))};
+
+                let data2 = await response2.text()
+                data2 = JSON.parse(data2)
+                data2 = data2.data
+
+                console.log(data2)
+
+                //disregard unnecessary info 
+
+                for (let key in data) {
+                    data[key]["platformCreator"] = "roblox"
+                }
+
+                for (let key in data2) {
+                    var thumbnail = await getRobloxianThumbnail(data2[key].id)
+                    data.push({
+                        "Name" : data2[key].name,
+                        "Description" : data2[key].description,
+                        "GameDetailReferralUrl" : `https://www.roblox.com/games/${data2[key].rootPlace.id}`,
+                        "Thumbnail" : {
+                            "Url" : thumbnail
+                        },
+                        "platformCreator" : "tsone"
+                    })
+                }
+
+                for (let key in data) {
+                    createProj("Roblox", key, data.length, data[key].Thumbnail.Url, false, [], data[key].Name, data[key].Description, ["Lua"], true, data[key].GameDetailReferralUrl, false, null, data[key].platformCreator)
+                };
+            };
+
+            /*getExperiences().catch(error => console.log(error));
+
+            https://www.roblox.com/users/profile/playergames-json?userId=1641292729
+
+            https://games.roblox.com/v2/groups/10913019/games?accessFilter=2&sortOrder=Asc
+
+            (universe ID under "id", place ID under "rootPlace" > "id" 👆) -- accessFilter to retrieve ONLY public games
+
+                1. https://games.roblox.com/v1/games/multiget-place-details?placeIds=${PLACE_ID}
+
+                2. https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${UNIVERSE_ID}&size=768x432&format=Png&isCircular=false
+            */
+
+            async function getTsone(simulator){
+                let response = await fetch("https://raw.githubusercontent.com/superkidsyuvan/superkidsyuvan.github.io/refs/heads/main/data/data.json", {
+                    method: "GET"
+                });
+                
+                if (!response.ok) {throw new Error("Failed with code:" + String(response.status))};
+                let data = await response.json().Games;
+
+                console.log(data)
+                
+                for (let key in data) {
+                    if(simulator){
+                        setTimeout(function(){
+                            createProj("Misc", key, data.length, data[key].Thumbnail.Url, data[key].Thumbnail.Carousel.Enabled, data[key].Thumbnail.Carousel.ImageURLs, data[key].Name, data[key].Description, retrieveLangArrFromData(data[key].Languages), data[key].RefferalDetails.LiveUrl.Enabled, data[key].RefferalDetails.LiveUrl.HTML_LiveUrl, data[key].RefferalDetails.Source.Enabled, data[key].RefferalDetails.Source.SourceRefferalUrl, data[key].PlatformCreator)
+                        }, key*100)
+                    } else {
+                        createProj("Misc", key, data.length, data[key].Thumbnail.Url, data[key].Thumbnail.Carousel.Enabled, data[key].Thumbnail.Carousel.ImageURLs, data[key].Name, data[key].Description, retrieveLangArrFromData(data[key].Languages), data[key].RefferalDetails.LiveUrl.Enabled, data[key].RefferalDetails.LiveUrl.HTML_LiveUrl, data[key].RefferalDetails.Source.Enabled, data[key].RefferalDetails.Source.SourceRefferalUrl, data[key].PlatformCreator)
+                    }
+                };
+                if (simulator) {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve()
+                    }, data.length * 100)
+                }) 
+                }
+            }
+
+            getTsone(false).catch(error => console.log(error));
+
+            window.addEventListener("keyup", function(e){
+                pressed.push(e.key);
+                pressed.splice(-secretCODE.length-1,pressed.length-secretCODE.length);
+                if(pressed.join("").includes(secretCODE)){
+                    var b = document.getElementsByClassName("b-text")
+                    for(let i = 0; i < b.length; i++){
+                        b[i].style.display = b[i].style.display == 'none' ? 'block' : 'none'
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+*.ini
+*.rs
+*.lock
+*.toml
+*.old
+nodemodules/*
+target/*

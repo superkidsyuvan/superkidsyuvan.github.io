@@ -1,0 +1,114 @@
+{
+    "Title" : "Webgames",
+    "Games" : [
+        {
+            "Name" : "Electronic Mayhem",
+            "Description" : "Let the Mayhem begin 💅",
+            "RefferalDetails" : {
+                "Source" : {
+                    "Enabled" : true,
+                    "SourceRefferalUrl" : "https://www.github.com/superkidsyuvan/EM_STEAM"
+                },
+                "LiveUrl" : {
+                    "Enabled" : true,
+                    "HTML_LiveUrl" : "https://sites.google.com/view/tsone/games/web-games/electronic-mayhem"
+                } 
+            },
+            "Thumbnail" : {
+                "Carousel" : {
+                    "Enabled" : false
+                },
+                "Url" : "https://i.imgur.com/UquJ4pM.png",
+                "IntrinsicAspectRatio" : ""
+            },
+            "Languages" : {
+                "JavaScript": 827340,
+                "HTML": 80506,
+                "CSS" : 98
+            },
+            "PlatformCreator" : "tsone"
+        },
+        {
+            "Name" : "Bone Catcher",
+            "Description" : "Silly little dog go brr for bones",
+            "RefferalDetails" : {
+                "Source" : {
+                    "Enabled" : false
+                },
+                "LiveUrl" : {
+                    "Enabled" : true,
+                    "HTML_LiveUrl" : "https://sites.google.com/view/tsone/games/web-games/bone-catcher"
+                } 
+            },
+            "Thumbnail" : {
+                "Carousel" : {
+                    "Enabled" : false
+                },
+                "Url" : "https://i.imgur.com/XUrRQs7.png",
+                "IntrinsicAspectRatio" : ""
+            },
+            "Languages" : {
+                "Javascript" : 5384,
+                "HTML" : 3490,
+                "CSS" : 98
+            },
+            "PlatformCreator" : "tsone"
+        },
+        {
+            "Name" : "Oddly Shaped Red Square",
+            "Description" : "Square is Yummy 😋",
+            "RefferalDetails" : {
+                "Source" : {
+                    "Enabled" : false
+                },
+                "LiveUrl" : {
+                    "Enabled" : true,
+                    "HTML_LiveUrl" : "https://sites.google.com/view/tsone/games/web-games/weird-red-sqaure?authuser=0"
+                } 
+            },
+            "Thumbnail" : {
+                "Carousel" : {
+                    "Enabled" : true,
+                    "ImageURLs" : [
+                        "https://i.imgur.com/NZHDONH.png",
+                        "https://i.imgur.com/YTPQmPs.png"
+                    ]
+                },
+                "Url" : "https://i.imgur.com/NZHDONH.png",
+                "IntrinsicAspectRatio" : ""
+            },
+            "Languages" : {
+                "Javascript" : 4914,
+                "HTML" : 428,
+                "CSS" : 98
+            },
+            "PlatformCreator" : "tsone"
+        },
+        {
+            "Name" : "Rocket Blast",
+            "Description" : "The higher your score, the higher the risks! (yes we revamped this)",
+            "RefferalDetails" : {
+                "Source" : {
+                    "Enabled" : false
+                },
+                "LiveUrl" : {
+                    "Enabled" : true,
+                    "HTML_LiveUrl" : "https://sites.google.com/view/tsone/games/web-games/rocket-blast"
+                } 
+            },
+            "Thumbnail" : {
+                "Carousel" : {
+                    "Enabled" : false
+                },
+                "Url" : "https://i.imgur.com/bi0Lss2.png",
+                "IntrinsicAspectRatio" : "2 / 1"
+            },
+            "Languages" : {
+                "HTML" : 19071,
+                "Javascript" : 5104,
+                "CSS" : 98
+            },
+            "PlatformCreator" : "tsone"
+        }
+    ]
+}
