@@ -751,7 +751,8 @@
                 });
                 
                 if (!response.ok) {throw new Error("Failed with code:" + String(response.status))};
-                let data = await response.json();
+                let data = await response.text();
+                data = JSON.parse(data)
 
                 for (let key in data) {
                     var langData = await retrieveLangArrFromURL(data[key].languages_url)
@@ -842,7 +843,9 @@
                 });
                 
                 if (!response.ok) {throw new Error("Failed with code:" + String(response.status))};
-                let data = await response.json().Games;
+                let data = await response.txt()
+                data = JSON.parse(data)
+                data = data.Games;
 
                 console.log(data)
                 
@@ -856,11 +859,11 @@
                     }
                 };
                 if (simulator) {
-                return new Promise((resolve) => {
-                    setTimeout(() => {
-                        resolve()
-                    }, data.length * 100)
-                }) 
+                    return new Promise((resolve) => {
+                        setTimeout(() => {
+                            resolve()
+                        }, data.length * 100)
+                    }) 
                 }
             }
 
