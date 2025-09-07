@@ -843,7 +843,7 @@
                 });
                 
                 if (!response.ok) {throw new Error("Failed with code:" + String(response.status))};
-                let data = await response.txt()
+                let data = await response.text()
                 data = JSON.parse(data)
                 data = data.Games;
 
